@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import firebase from 'firebase';
+    import {db} from '../firebase';
     export default {
         name: 'Login',
         data: function(){
@@ -36,7 +36,7 @@
         },
         methods: {
             singIn: function(){
-                firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+                db.auth().signInWithEmailAndPassword(this.email, this.password)
                 .then((user) => {
                     this.$toastr('success', 'Добре дошли!');
                     this.$router.replace('/');

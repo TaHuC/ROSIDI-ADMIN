@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import {db} from '../firebase';
 
     export default {
         name: 'SingUp',
@@ -44,7 +44,7 @@ import firebase from 'firebase';
             singup: function(){
                 //alert(this.password + ' - ' + this.confrPass);
                 if (this.password === this.confrPass) {
-                    firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+                    db.auth().createUserWithEmailAndPassword(this.email, this.password)
                     .then((user) => this.$toastr('success', 'Регитрацията мина успешно'))
                     .catch((error) => { this.$toastr('warning', error.message)});
                 }
