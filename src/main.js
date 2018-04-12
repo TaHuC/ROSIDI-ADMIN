@@ -5,6 +5,8 @@ import App from './App'
 import VueFire from 'vuefire'
 import router from './router'
 import toastr from '@deveodk/vue-toastr'
+import '@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css'
+
 
 import {db} from './firebase'
 
