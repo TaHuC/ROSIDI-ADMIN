@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <div class="d-flex fixed-top flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <h5 class="my-0 mr-md-auto font-weight-normal">Rosidi</h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" data-toggle="modal" data-target="#addModal"  href="#">Добави</a>
@@ -120,9 +120,9 @@ export default {
     },
     addData: function() {
         dbRef.push(this.newText);
-        this.positionText = '';
-        this.textWeb = '';
-        this.$toastr('success', 'Текста е записан успешно');
+        this.newText.positionText = '';
+        this.newText.textWeb = '';
+        this.$toastr('success', 'Записан успешно');
     },
     setData: function(data) {
       this.editText['.key'] = data['.key'];
@@ -138,6 +138,7 @@ export default {
       
     },
     rempoveData: function(row) {
+      confirm("Сигурни ли сте, че искате да го изтриете!");
       dbRef.child(row['.key']).remove();
       this.$toastr('success', 'Данните са изтрити успешно!');
     }
@@ -158,6 +159,7 @@ export default {
 
   .container {
     max-width: 960px;
+    margin-top: 80px;
   }
 
   .pricing-header {
