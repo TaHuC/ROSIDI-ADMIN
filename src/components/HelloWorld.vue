@@ -138,9 +138,11 @@ export default {
       
     },
     rempoveData: function(row) {
-      confirm("Сигурни ли сте, че искате да го изтриете!");
-      dbRef.child(row['.key']).remove();
-      this.$toastr('success', 'Данните са изтрити успешно!');
+      let confr = confirm("Сигурни ли сте, че искате да го изтриете!");
+      if(confr == true) {
+        dbRef.child(row['.key']).remove();
+        this.$toastr('success', 'Данните са изтрити успешно!');
+      }
     }
   }
 }
